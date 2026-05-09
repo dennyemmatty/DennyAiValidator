@@ -1,10 +1,12 @@
 import streamlit as st #for input from webpage
 from google import genai
-from streamlit import pdf
+import os
 
-client = genai.Client(api_key="AQ.Ab8RN6LpaT71aoodJbV4b19k7O0TtupYqUut81eku_mPDNAwbg")
 st.title("AI Business Validator")
 #st.header("This is my personnel GPT")
+
+key = os.getenv("GOOGLE_API_KEY")
+client = genai.Client(api_key=key)
 
 audience = st.text_input("Who are your audience? ")
 age_group = st.text_input("Which is your age group? ")
